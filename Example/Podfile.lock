@@ -1,0 +1,16 @@
+PODS:
+  - KMAgoraRtc (0.1.0)
+
+DEPENDENCIES:
+  - KMAgoraRtc (from `../`)
+
+EXTERNAL SOURCES:
+  KMAgoraRtc:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  KMAgoraRtc: dc371a9e3f5dfdd68f156c0108c0c977f912b305
+
+PODFILE CHECKSUM: ee28e5d6fade940a3155b5e8db37244881ad62e3
+
+COCOAPODS: 1.7.0
