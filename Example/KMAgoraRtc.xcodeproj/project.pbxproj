@@ -18,7 +18,7 @@
 /* Begin PBXFileReference section */
 		098E0BE1AB088D770CB4FFEB /* Pods-KMAgoraRtc_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMAgoraRtc_Example.release.xcconfig"; path = "Target Support Files/Pods-KMAgoraRtc_Example/Pods-KMAgoraRtc_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4593BD04657780244AF89A71 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		4655DEFCB1209C864A383BF6 /* KMAgoraRtc.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KMAgoraRtc.podspec; path = ../KMAgoraRtc.podspec; sourceTree = "<group>"; };
+		4655DEFCB1209C864A383BF6 /* KMAgoraRtc.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KMAgoraRtc.podspec; path = ../KMAgoraRtc.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		607FACD01AFB9204008FA782 /* KMAgoraRtc_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMAgoraRtc_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = XYBK7B7U6R;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -390,7 +390,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -406,7 +406,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
