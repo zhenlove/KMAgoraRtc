@@ -56,7 +56,7 @@ public class KMFloatViewManager: NSObject {
     
     /// 初始化声网SDK
     // 93493485679640ec8f2a91035111ee01
-    public func initializeAgotaEngine(_ appId: String? = "93493485679640ec8f2a91035111ee01") {
+    public func initializeAgotaEngine(_ appId: String? = "93493485679640ec8f2a91035111ee01" ) {
         if let appid = appId {
             agoraKit = AgoraRtcEngineKit.sharedEngine(withAppId: appid, delegate: self)
             print("AgoraRtcKitSDK版本号" + AgoraRtcEngineKit.getSdkVersion())
