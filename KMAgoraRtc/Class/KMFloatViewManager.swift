@@ -6,9 +6,10 @@
 //  Copyright © 2018 Ed. All rights reserved.
 //
 
-import AgoraRtcKit
+
 import Foundation
 import UIKit
+import AgoraRtcKit
 extension NSObject {
     public func kmCurrentViewController() -> UIViewController? {
         var vc = UIApplication.shared.keyWindow?.rootViewController
