@@ -12,13 +12,14 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		9355EF880D19253C7B808C1C /* Pods_KMAgoraRtc_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF8F206CCF6D057A7C49121 /* Pods_KMAgoraRtc_Example.framework */; };
+		94E77CDBC033DBE393F0032D /* libPods-KMAgoraRtc_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF3125545A1720926A32D5A /* libPods-KMAgoraRtc_Example.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		098E0BE1AB088D770CB4FFEB /* Pods-KMAgoraRtc_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMAgoraRtc_Example.release.xcconfig"; path = "Target Support Files/Pods-KMAgoraRtc_Example/Pods-KMAgoraRtc_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4593BD04657780244AF89A71 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		4655DEFCB1209C864A383BF6 /* KMAgoraRtc.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KMAgoraRtc.podspec; path = ../KMAgoraRtc.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		4BF3125545A1720926A32D5A /* libPods-KMAgoraRtc_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KMAgoraRtc_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* KMAgoraRtc_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMAgoraRtc_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -28,7 +29,6 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CC02FFC62525765EEFBB12E0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		D4E2ADFB481D379BE67AE6E3 /* Pods-KMAgoraRtc_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMAgoraRtc_Example.debug.xcconfig"; path = "Target Support Files/Pods-KMAgoraRtc_Example/Pods-KMAgoraRtc_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		EAF8F206CCF6D057A7C49121 /* Pods_KMAgoraRtc_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KMAgoraRtc_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,7 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9355EF880D19253C7B808C1C /* Pods_KMAgoraRtc_Example.framework in Frameworks */,
+				94E77CDBC033DBE393F0032D /* libPods-KMAgoraRtc_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,7 +97,7 @@
 		76944B0A37F06540ED51F160 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EAF8F206CCF6D057A7C49121 /* Pods_KMAgoraRtc_Example.framework */,
+				4BF3125545A1720926A32D5A /* libPods-KMAgoraRtc_Example.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -122,8 +122,7 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				A2534DED0408854893993BA9 /* [CP] Embed Pods Frameworks */,
-				5D7C39037533DB82FE918A26 /* [CP] Copy Pods Resources */,
+				BFFBF5C87E488B9D12E9DA30 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -183,24 +182,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5D7C39037533DB82FE918A26 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KMAgoraRtc_Example/Pods-KMAgoraRtc_Example-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/KMAgoraRtc/AgoraRtc.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AgoraRtc.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KMAgoraRtc_Example/Pods-KMAgoraRtc_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		968B1E8641EB9F4C01480205 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -223,22 +204,22 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A2534DED0408854893993BA9 /* [CP] Embed Pods Frameworks */ = {
+		BFFBF5C87E488B9D12E9DA30 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KMAgoraRtc_Example/Pods-KMAgoraRtc_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-KMAgoraRtc_Example/Pods-KMAgoraRtc_Example-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/KMAgoraRtc/AgoraRtc.bundle",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AgoraRtc.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KMAgoraRtc_Example/Pods-KMAgoraRtc_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KMAgoraRtc_Example/Pods-KMAgoraRtc_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

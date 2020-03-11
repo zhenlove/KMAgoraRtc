@@ -1,6 +1,6 @@
 PODS:
-  - AgoraRtcEngine_iOS (2.9.1)
-  - KMAgoraRtc (0.0.1):
+  - AgoraRtcEngine_iOS (3.0.0)
+  - KMAgoraRtc (1.0.0):
     - AgoraRtcEngine_iOS
     - SnapKit
   - SnapKit (4.2.0)
@@ -9,7 +9,7 @@ DEPENDENCIES:
   - KMAgoraRtc (from `../`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - AgoraRtcEngine_iOS
     - SnapKit
 
@@ -18,10 +18,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AgoraRtcEngine_iOS: b2eedd8f9ab47b71163f3285e836bd23feb43fff
-  KMAgoraRtc: b552ef716c3d16d999596ee2f62a7273dc20d8bf
+  AgoraRtcEngine_iOS: faaa446c165609e055f7ff56268ccb429e081e57
+  KMAgoraRtc: 0a47987222a83473039c02d04d65f565cd94bc19
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 0bd4adb2029b35342b494cba372e9b0a0e516801
+PODFILE CHECKSUM: 8f2ae06be9e2b356db7fe1f40396061912d1c7a8
 
-COCOAPODS: 1.7.0
+COCOAPODS: 1.8.4

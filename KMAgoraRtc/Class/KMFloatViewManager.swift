@@ -6,7 +6,7 @@
 //  Copyright © 2018 Ed. All rights reserved.
 //
 
-import AgoraRtcEngineKit
+import AgoraRtcKit
 import Foundation
 import UIKit
 extension NSObject {
@@ -37,6 +37,7 @@ extension NSObject {
     }
 }
 
+@objc(KMFloatViewManager)
 public class KMFloatViewManager: NSObject {
     public static let sharedInstance = KMFloatViewManager()
     
