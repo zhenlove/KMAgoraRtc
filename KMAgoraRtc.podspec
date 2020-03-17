@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'KMAgoraRtc'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = '声网SDK封装'
   s.description      = <<-DESC
   TODO: Add long description of the pod here.
