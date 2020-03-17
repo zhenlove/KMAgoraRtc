@@ -38,9 +38,18 @@ extension NSObject {
     }
 }
 
+@objc
+public protocol KMFloatViewManagerDelegate : NSObjectProtocol {
+    func clickedHangupButton()
+    func clickedPrescribeButton()
+}
+
+
+
 @objc(KMFloatViewManager)
+
 public class KMFloatViewManager: NSObject {
-    public static let sharedInstance = KMFloatViewManager()
+    @objc public static let sharedInstance = KMFloatViewManager()
     
     let screenWidth = UIScreen.main.bounds.size.width
     let screenHeight = UIScreen.main.bounds.size.height
@@ -48,21 +57,20 @@ public class KMFloatViewManager: NSObject {
     
     var agoraKit: AgoraRtcEngineKit?
     var agoraRtcView: KMAgoraRtcView?
+    @objc public var delegate:KMFloatViewManagerDelegate?
     
     /// 初始化视图
-    func initializeView() {
-        agoraRtcView = KMAgoraRtcView()
+    func initializeView(_ userType:Int) {
+        agoraRtcView = KMAgoraRtcView(userType)
         agoraRtcView?.operateView.delegate = self
         agoraRtcView?.delegate = self
     }
     
     /// 初始化声网SDK
     // 93493485679640ec8f2a91035111ee01
-    public func initializeAgotaEngine(_ appId: String? = "93493485679640ec8f2a91035111ee01" ) {
-        if let appid = appId {
-            agoraKit = AgoraRtcEngineKit.sharedEngine(withAppId: appid, delegate: self)
-            print("AgoraRtcKitSDK版本号" + AgoraRtcEngineKit.getSdkVersion())
-        }
+    public func initializeAgotaEngine(_ appId: String) {
+        agoraKit = AgoraRtcEngineKit.sharedEngine(withAppId: appId, delegate: self)
+//        print("AgoraRtcKitSDK版本号" + AgoraRtcEngineKit.getSdkVersion())
     }
     
     /// 设置通信模式
@@ -101,15 +109,19 @@ public class KMFloatViewManager: NSObject {
         }
     }
     
+    
     /// 加载视图
+    /// - Parameters:
+    ///   - userType: userType: 0,系统用户；1,患者；2,医生；4,药店工作站用户
     @objc
-    public func showView(_ channelKey: String, _ channelId: String,_ userId: UInt) {
-        initializeView()
-        initializeAgotaEngine()
+    public func showView(channelKey: String, channelId: String, userId: UInt, appId:String, userType:Int) {
+        initializeView(userType)
+        initializeAgotaEngine(appId)
         setupVideo()
         setupLocalVideo()
         joinChannel(channelKey,channelId,userId)
-        
+        agoraKit?.muteLocalAudioStream(false)
+        agoraKit?.setEnableSpeakerphone(true)
         if let view = agoraRtcView {
             UIApplication.shared.keyWindow?.addSubview(view)
             view.frame = CGRect(x: 0, y: -screenHeight, width: screenWidth, height: screenHeight)
@@ -121,7 +133,9 @@ public class KMFloatViewManager: NSObject {
     }
     
     /// 隐藏视图
+    @objc
     func dissView() {
+        delegate?.clickedHangupButton()
         if let view = agoraRtcView {
             UIView.animate(withDuration: 0.25, animations: {
                 if view.zoomOut {
@@ -218,7 +232,10 @@ extension KMFloatViewManager: AgoraRtcEngineDelegate {
     
     /// 语音质量回调
     public func rtcEngine(_ engine: AgoraRtcEngineKit, audioQualityOfUid uid: UInt, quality: AgoraNetworkQuality, delay: UInt, lost: UInt) {
-//        signalBtn.setTitle("\(quality.rawValue)", for: .normal)
+        if quality.rawValue > 0 && quality.rawValue < 6 {
+            let image = KMAgoraRTCTools.getImage(named: "icon_network-" + "\(6-quality.rawValue)")
+            agoraRtcView?.operateView.signalBtn.setImage(image, for: .normal)
+        }
     }
 }
 
@@ -248,11 +265,18 @@ extension KMFloatViewManager: KMMediaOperationDelegate {
     func clickedSwithCameraButton(_ sender: UIButton) {
         agoraKit?.switchCamera()
     }
+    func clickedPrescribeButton(_ sender: UIButton) {
+        // 开处方
+        delegate?.clickedPrescribeButton()
+    }
 }
 
 extension KMFloatViewManager: KMFloatViewDelegate {
     func clickeTappedFloatView() {
-        agoraRtcView?.zoomOut = false
-        enlargeView()
+        if agoraRtcView?.zoomOut == true {
+            agoraRtcView?.zoomOut = false
+            enlargeView()
+        }
+        
     }
 }

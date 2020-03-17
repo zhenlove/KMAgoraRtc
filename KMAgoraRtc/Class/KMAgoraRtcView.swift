@@ -16,15 +16,19 @@ class KMAgoraRtcView: KMFloatView {
     lazy var remoteVideo = UIView()
     lazy var localVideoView = UIView()
     lazy var remoteVideoView = UIView()
-    lazy var operateView = KMOperateView()
-
+//    lazy var operateView = KMOperateView()
+    var operateView:KMOperateView!
+    
     let screenWidth = UIScreen.main.bounds.size.width
     let screenHeight = UIScreen.main.bounds.size.height
     let stateHeight = UIApplication.shared.statusBarFrame.size.height
     var isExchange = false
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    /// 用户类型
+    /// - Parameter type: 0,系统用户；1,患者；2,医生；4,药店工作站用户
+    init(_ type:Int) {
+        operateView = KMOperateView(type)
+        super.init(frame: CGRect.zero)
         
         backgroundColor = UIColor.black
         
@@ -68,7 +72,7 @@ class KMAgoraRtcView: KMFloatView {
     }
     
     deinit {
-        print("我的视图释放了")
+//        print("我的视图释放了")
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -73,6 +73,7 @@ protocol KMMediaOperationDelegate :class {
     func clickedZoomOutButton(_ sender: UIButton)
     func clickedHangupButton(_ sender: UIButton)
     func clickedSwithCameraButton(_ sender: UIButton)
+    func clickedPrescribeButton(_ sender: UIButton)
 }
 
 extension KMMediaOperationDelegate {
@@ -92,6 +93,9 @@ extension KMMediaOperationDelegate {
         
     }
     func clickedSwithCameraButton(_ sender: UIButton) {
+        
+    }
+    func clickedPrescribeButton(_ sender: UIButton) {
         
     }
 }
@@ -119,13 +123,23 @@ class KMOperateView: UIView {
     var signalBtn: UIButton!//网络信号
     var hangUpBtn: UIButton!//挂断
     var collapseBtn: UIButton!//收起
+    var prescribeBtn :UIButton! //开处方
     var stackView1: UIStackView!
     var stackView2: UIStackView!
-    
+    var userType:Int!
     weak var delegate: KMMediaOperationDelegate?
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    
+    /// 用户类型
+    /// - Parameter type: 0,系统用户；1,患者；2,医生；4,药店工作站用户
+//    init(_ type:Int) {
+//        userType = type
+//        self.init(frame: CGRect.zero)
+//    }
+    
+    init(_ type:Int) {
+        userType = type
+        super.init(frame: CGRect.zero)
         microphoneBtn = creatButtonImage(title: "麦克风",
                                          image: KMAgoraRTCTools.getImage(named: "icon_micro"),
                                          selectImage: KMAgoraRTCTools.getImage(named: "icon_micro_close"),
@@ -139,10 +153,11 @@ class KMOperateView: UIView {
                                      action: #selector(clickeCameraBtn(_:)))
         
         speakerBtn = creatButtonImage(title: "扬声器",
-                                      image: KMAgoraRTCTools.getImage(named: "icon_loudspeaker"),
-                                      selectImage: KMAgoraRTCTools.getImage(named: "icon_loudspeaker_close"),
+                                      image: KMAgoraRTCTools.getImage(named: "icon_loudspeaker_close"),
+                                      selectImage: KMAgoraRTCTools.getImage(named: "icon_loudspeaker"),
                                       disabledImage: KMAgoraRTCTools.getImage(named: "icon_loudspeaker_enable"),
                                       action: #selector(clickeSpeakerBtn(_:)))
+        speakerBtn.isSelected = true
         
         switchBtn = creatButton(title: "切换",
                                 image: KMAgoraRTCTools.getImage(named: "icon_camera_switch"),
@@ -160,11 +175,16 @@ class KMOperateView: UIView {
                                   image: KMAgoraRTCTools.getImage(named: "icon_zoomout"),
                                   action: #selector(clickeCollapseBtn(_:)))
         
+        prescribeBtn = creatButton(title: "开处方",
+                                   image: KMAgoraRTCTools.getImage(named: "icon_prescribe"),
+                                   action: #selector(clickPrescribeBtn(_:)))
+        
         stackView1 = UIStackView.init()
         stackView1.axis = .horizontal
         stackView1.distribution = .equalSpacing
-//        stackView1.alignment = .center
-//        stackView1.isLayoutMarginsRelativeArrangement = true
+        if userType == 2 {
+            stackView1.distribution = .fillEqually
+        }
         
         
         stackView2 = UIStackView.init()
@@ -179,6 +199,10 @@ class KMOperateView: UIView {
         stackView1.addArrangedSubview(cameraBtn)
         stackView1.addArrangedSubview(speakerBtn)
         stackView1.addArrangedSubview(switchBtn)
+        if userType == 2 {
+            stackView1.addArrangedSubview(prescribeBtn)
+        }
+        
         
         stackView2.addArrangedSubview(signalBtn)
         stackView2.addArrangedSubview(hangUpBtn)
@@ -226,6 +250,10 @@ class KMOperateView: UIView {
     
     @objc func clickeCollapseBtn(_ sender: UIButton) {
         delegate?.clickedZoomOutButton(sender)
+    }
+    
+    @objc func clickPrescribeBtn(_ sender: UIButton) {
+        delegate?.clickedPrescribeButton(sender)
     }
     
     func creatButton(title: String?,image: UIImage?,action: Selector?) -> UIButton {

@@ -47,56 +47,56 @@ class KMFloatView: UIView {
             if let curPoint = currentPoint, let prePoint = previousPoint , let windowBound = UIApplication.shared.keyWindow?.bounds{
                 let dx = curPoint.x - prePoint.x
                 let dy = curPoint.y - prePoint.y
-                
+
                 let stateHeight = UIApplication.shared.statusBarFrame.size.height
                 var newCenter = CGPoint.init(x: center.x + dx, y: center.y + dy)
-                
+
                 //限制不能超过父视图边界
                 newCenter.x = max(self.frame.size.width/2, newCenter.x)
                 newCenter.x = min(newCenter.x, windowBound.size.width - self.frame.size.width/2)
-                
+
                 newCenter.y = max(self.frame.size.height/2 + stateHeight,  newCenter.y)
                 newCenter.y = min(newCenter.y, windowBound.size.height - self.frame.size.height/2)
-                
+
                 center = newCenter
             }
         }
-        
+
     }
-    
+
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         endTouch(point: touches.first?.location(in: UIApplication.shared.keyWindow) ?? CGPoint.init())
     }
-    
+
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         endTouch(point: touches.first?.location(in: UIApplication.shared.keyWindow) ?? CGPoint.init())
     }
-    
+
     func endTouch(point:CGPoint) {
         if zoomOut {
             var newFrame = frame
-            
+
             let screenWidth = UIScreen.main.bounds.size.width
             let screenHeight = UIScreen.main.bounds.size.height
-            
+
             /// 状态栏高度
             let stateHeight = UIApplication.shared.statusBarFrame.size.height
-            
+
             /// 如果是iPhone X时获取底部距离
             let iphonexBottomHeight : CGFloat = UIDevice.isIphoneX() ? 34.00 : 0.00
-            
+
             if point.x > screenWidth / 2 {
                 newFrame.origin.x = screenWidth - newFrame.size.width - margin
             } else {
                 newFrame.origin.x = margin
             }
-            
+
             if newFrame.origin.y > (screenHeight - iphonexBottomHeight - newFrame.size.height - margin) {
                 newFrame.origin.y = screenHeight - iphonexBottomHeight - newFrame.size.height - margin
             } else if newFrame.origin.y < stateHeight {
                 newFrame.origin.y = stateHeight
             }
-            
+
             UIView.animate(withDuration: 0.25) {
                 self.frame = newFrame
             }
