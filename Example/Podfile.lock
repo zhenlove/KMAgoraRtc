@@ -1,6 +1,6 @@
 PODS:
   - AgoraRtcEngine_iOS (3.0.0)
-  - KMAgoraRtc (1.0.0):
+  - KMAgoraRtc (1.0.2):
     - AgoraRtcEngine_iOS
     - SnapKit
   - SnapKit (4.2.0)
@@ -19,7 +19,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AgoraRtcEngine_iOS: faaa446c165609e055f7ff56268ccb429e081e57
-  KMAgoraRtc: 0a47987222a83473039c02d04d65f565cd94bc19
+  KMAgoraRtc: 6d7a7f9bcf77cba9781b1ea6807d6d18501f72d2
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
 PODFILE CHECKSUM: 8f2ae06be9e2b356db7fe1f40396061912d1c7a8

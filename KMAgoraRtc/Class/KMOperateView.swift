@@ -132,11 +132,6 @@ class KMOperateView: UIView {
     
     /// 用户类型
     /// - Parameter type: 0,系统用户；1,患者；2,医生；4,药店工作站用户
-//    init(_ type:Int) {
-//        userType = type
-//        self.init(frame: CGRect.zero)
-//    }
-    
     init(_ type:Int) {
         userType = type
         super.init(frame: CGRect.zero)

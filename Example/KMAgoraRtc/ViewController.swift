@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KMAgoraRtc
 
 class ViewController: UIViewController {
 
@@ -19,6 +20,28 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        let vc = KMCallingSystemController()
+//        vc.delegate = self
+//        vc.modalPresentationStyle = .fullScreen//UIModalPresentationFullScreen
+//        present(vc, animated: true, completion: nil)
+        
+        let vc = KMTestViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+    }
 
 }
 
+extension ViewController : KMCallingSystemOperationDelegate {
+    func answerCallingInKMCallingOperation() {
+        print("接听")
+    }
+    
+    func rejectedCallingInKMCallingOperation() {
+        print("挂断")
+    }
+    
+    
+}

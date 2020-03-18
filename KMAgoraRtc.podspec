@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.source_files = 'KMAgoraRtc/Class/*.{swift}'
 #  s.resource = 'KMAgoraRtc/Class/AgoraRtc.xcassets'
   s.resource_bundles = {
-      'AgoraRtc' => ['KMAgoraRtc/Class/AgoraRtc.xcassets']
+      'AgoraRtc' => ['KMAgoraRtc/Assets/*']
     }
   s.dependency 'SnapKit'
 #  s.dependency 'SnapKit','AgoraRtcEngine_iOS'

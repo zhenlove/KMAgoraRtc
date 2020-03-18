@@ -16,7 +16,6 @@ class KMAgoraRtcView: KMFloatView {
     lazy var remoteVideo = UIView()
     lazy var localVideoView = UIView()
     lazy var remoteVideoView = UIView()
-//    lazy var operateView = KMOperateView()
     var operateView:KMOperateView!
     
     let screenWidth = UIScreen.main.bounds.size.width
@@ -72,7 +71,6 @@ class KMAgoraRtcView: KMFloatView {
     }
     
     deinit {
-//        print("我的视图释放了")
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -9,7 +9,16 @@
 #import "KMTestViewController.h"
 #import "KMAgoraRtc_Example-Swift.h"
 @import KMAgoraRtc;
-@interface KMTestViewController ()
+
+@interface KMUserInfo()<KMCallInfoModel>
+
+@end
+
+@implementation KMUserInfo
+
+@end
+
+@interface KMTestViewController ()<KMCallingSystemOperationDelegate>
 
 @end
 
@@ -18,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    KMFloatViewManager * manager = [KMFloatViewManager sharedInstance];
+//    KMFloatViewManager * manager = [KMFloatViewManager sharedInstance];
 }
 
 /*
@@ -31,4 +40,22 @@
 }
 */
 
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+    KMUserInfo *userInfo = [[KMUserInfo alloc]init];
+    userInfo.callName = @"王医生";
+    
+    KMCallingSystemController * callSystem = [[KMCallingSystemController alloc]init];
+    callSystem.delegate = self;
+    callSystem.userDelegate = userInfo;
+    callSystem.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:callSystem animated:true completion:nil];
+}
+
+-(void)answerCallingInKMCallingOperation {
+    NSLog(@"接听");
+}
+-(void)rejectedCallingInKMCallingOperation {
+    NSLog(@"挂断");
+}
 @end

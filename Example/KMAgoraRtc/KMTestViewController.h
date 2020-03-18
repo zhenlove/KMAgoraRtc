@@ -14,4 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface KMUserInfo : NSObject
+@property (nonatomic, copy)NSString * callName;
+@property (nonatomic, strong)UIImage * callImage;
+@end
+
 NS_ASSUME_NONNULL_END

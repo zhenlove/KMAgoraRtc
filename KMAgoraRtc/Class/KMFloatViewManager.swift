@@ -47,7 +47,6 @@ public protocol KMFloatViewManagerDelegate : NSObjectProtocol {
 
 
 @objc(KMFloatViewManager)
-
 public class KMFloatViewManager: NSObject {
     @objc public static let sharedInstance = KMFloatViewManager()
     
@@ -70,7 +69,6 @@ public class KMFloatViewManager: NSObject {
     // 93493485679640ec8f2a91035111ee01
     public func initializeAgotaEngine(_ appId: String) {
         agoraKit = AgoraRtcEngineKit.sharedEngine(withAppId: appId, delegate: self)
-//        print("AgoraRtcKitSDK版本号" + AgoraRtcEngineKit.getSdkVersion())
     }
     
     /// 设置通信模式
