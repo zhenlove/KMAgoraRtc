@@ -43,7 +43,8 @@
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
     KMUserInfo *userInfo = [[KMUserInfo alloc]init];
-    userInfo.callName = @"王医生";
+    userInfo.callName = @"黄医生";
+    userInfo.callImage = @"https://prstore.kmwlyy.com/images/doctor/unknow.png";
     
     KMCallingSystemController * callSystem = [[KMCallingSystemController alloc]init];
     callSystem.delegate = self;

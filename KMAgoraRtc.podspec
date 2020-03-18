@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'KMAgoraRtc'
-  s.version          = '1.0.3'
+  s.version          = '1.0.4'
   s.summary          = '声网SDK封装'
   s.description      = <<-DESC
   TODO: Add long description of the pod here.
@@ -19,5 +19,5 @@ Pod::Spec.new do |s|
     }
   s.dependency 'SnapKit'
   s.dependency 'AgoraRtcEngine_iOS'
-
+  s.dependency 'Kingfisher'
 end

@@ -3,5 +3,5 @@ inhibit_all_warnings!
 platform :ios, '9.0'
 
 target 'KMAgoraRtc_Example' do
-  pod 'KMAgoraRtc', :path => '../'
+  pod 'KMAgoraRtc',:path => '../'
 end

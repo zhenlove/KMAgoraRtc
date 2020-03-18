@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Kingfisher
 @objc public protocol KMCallingSystemOperationDelegate:NSObjectProtocol {
     func answerCallingInKMCallingOperation()
     func rejectedCallingInKMCallingOperation()
@@ -14,7 +14,7 @@ import UIKit
 
 @objc public protocol KMCallInfoModel:NSObjectProtocol {
     var callName:String? { get }
-    var callImage:UIImage? { get }
+    var callImage:String? { get }
     
 }
 
@@ -40,7 +40,10 @@ public class KMCallingSystemController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        doctorImage.image = userDelegate?.callImage
+        if let urlStr = userDelegate?.callImage,
+            let url = URL(string: urlStr) {
+            doctorImage.kf.setImage(with: url)
+        }
         doctorName.text = userDelegate?.callName
 
         // Do any additional setup after loading the view.
