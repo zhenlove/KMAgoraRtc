@@ -14,12 +14,10 @@ Pod::Spec.new do |s|
   s.swift_version = '5.0'
 #  s.static_framework = true
   s.source_files = 'KMAgoraRtc/Class/*.{swift}'
-#  s.resource = 'KMAgoraRtc/Class/AgoraRtc.xcassets'
   s.resource_bundles = {
       'AgoraRtc' => ['KMAgoraRtc/Assets/*']
     }
   s.dependency 'SnapKit'
-#  s.dependency 'SnapKit','AgoraRtcEngine_iOS'
   s.dependency 'AgoraRtcEngine_iOS'
 
 end

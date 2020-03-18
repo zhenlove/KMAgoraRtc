@@ -34,14 +34,14 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController : KMCallingSystemOperationDelegate {
-    func answerCallingInKMCallingOperation() {
-        print("接听")
-    }
-    
-    func rejectedCallingInKMCallingOperation() {
-        print("挂断")
-    }
-    
-    
-}
+//extension ViewController : KMCallingSystemOperationDelegate {
+//    func answerCallingInKMCallingOperation() {
+//        print("接听")
+//    }
+//
+//    func rejectedCallingInKMCallingOperation() {
+//        print("挂断")
+//    }
+//
+//
+//}
