@@ -56,7 +56,7 @@ public class KMFloatViewManager: NSObject {
     
     var agoraKit: AgoraRtcEngineKit?
     var agoraRtcView: KMAgoraRtcView?
-    @objc public var delegate:KMFloatViewManagerDelegate?
+    @objc public weak var delegate:KMFloatViewManagerDelegate?
     
     /// 初始化视图
     func initializeView(_ userType:Int) {
