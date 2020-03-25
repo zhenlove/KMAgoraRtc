@@ -57,6 +57,7 @@ public class KMFloatViewManager: NSObject {
     var agoraKit: AgoraRtcEngineKit?
     var agoraRtcView: KMAgoraRtcView?
     @objc public weak var delegate:KMFloatViewManagerDelegate?
+    @objc public var isShow:Bool = false
     
     /// 初始化视图
     func initializeView(_ userType:Int) {
@@ -113,6 +114,7 @@ public class KMFloatViewManager: NSObject {
     ///   - userType: userType: 0,系统用户；1,患者；2,医生；4,药店工作站用户
     @objc
     public func showView(channelKey: String, channelId: String, userId: UInt, appId:String, userType:Int) {
+        isShow = true
         initializeView(userType)
         initializeAgotaEngine(appId)
         setupVideo()
@@ -132,8 +134,8 @@ public class KMFloatViewManager: NSObject {
     
     /// 隐藏视图
     @objc
-    func dissView() {
-        delegate?.clickedHangupButton()
+    public func dissView() {
+        isShow = false
         if let view = agoraRtcView {
             UIView.animate(withDuration: 0.25, animations: {
                 if view.zoomOut {
@@ -257,7 +259,7 @@ extension KMFloatViewManager: KMMediaOperationDelegate {
     }
     
     func clickedHangupButton(_ sender: UIButton) {
-        dissView()
+        delegate?.clickedHangupButton()
     }
     
     func clickedSwithCameraButton(_ sender: UIButton) {
