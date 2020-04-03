@@ -1,7 +1,7 @@
 PODS:
   - AgoraRtcEngine_iOS (3.0.0)
   - Kingfisher (4.10.1)
-  - KMAgoraRtc (1.0.3):
+  - KMAgoraRtc (1.0.7):
     - AgoraRtcEngine_iOS
     - Kingfisher
     - SnapKit
@@ -23,9 +23,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AgoraRtcEngine_iOS: faaa446c165609e055f7ff56268ccb429e081e57
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
-  KMAgoraRtc: b6d037a10e109c0ef847f1a66252a2c706fc3c76
+  KMAgoraRtc: 444b5fb1014319cf78bfcbb1e10e71cc852c67ec
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: b0863aa266b387d46271ba954388dce39348a5b6
+PODFILE CHECKSUM: 94740a004029615c6c37a458943e31aab0b725a9
 
 COCOAPODS: 1.8.4

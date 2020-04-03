@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'KMAgoraRtc'
-  s.version          = '1.0.6'
+  s.version          = '1.0.7'
   s.summary          = '声网SDK封装'
   s.description      = <<-DESC
   TODO: Add long description of the pod here.
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/zhenlove/KMAgoraRtc.git', :tag => s.version.to_s }
   s.ios.deployment_target = '9.0'
   s.swift_version = '5.0'
-#  s.static_framework = true
+  s.static_framework = true
   s.source_files = 'KMAgoraRtc/Class/*.{swift}'
   s.resource_bundles = {
       'AgoraRtc' => ['KMAgoraRtc/Assets/*']
