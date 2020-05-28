@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		60237B5F507492BAB7DF279E /* Pods_KMAgoraRtc_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B1DD678079E990E739CF4B /* Pods_KMAgoraRtc_Example.framework */; };
+		506EB261ACD99E29B99A344A /* Pods_KMAgoraRtc_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A825592764033B96968EAA /* Pods_KMAgoraRtc_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -30,7 +30,7 @@
 		6470E87A241F251E00AFC968 /* KMAgoraRtc_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KMAgoraRtc_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		6470E87B241F251E00AFC968 /* KMTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMTestViewController.h; sourceTree = "<group>"; };
 		6470E87C241F251E00AFC968 /* KMTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMTestViewController.m; sourceTree = "<group>"; };
-		B1B1DD678079E990E739CF4B /* Pods_KMAgoraRtc_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KMAgoraRtc_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3A825592764033B96968EAA /* Pods_KMAgoraRtc_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KMAgoraRtc_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC02FFC62525765EEFBB12E0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		D4E2ADFB481D379BE67AE6E3 /* Pods-KMAgoraRtc_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMAgoraRtc_Example.debug.xcconfig"; path = "Target Support Files/Pods-KMAgoraRtc_Example/Pods-KMAgoraRtc_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -40,7 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60237B5F507492BAB7DF279E /* Pods_KMAgoraRtc_Example.framework in Frameworks */,
+				506EB261ACD99E29B99A344A /* Pods_KMAgoraRtc_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,7 +104,7 @@
 		76944B0A37F06540ED51F160 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B1B1DD678079E990E739CF4B /* Pods_KMAgoraRtc_Example.framework */,
+				A3A825592764033B96968EAA /* Pods_KMAgoraRtc_Example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -130,7 +130,7 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				BFFBF5C87E488B9D12E9DA30 /* [CP] Copy Pods Resources */,
-				A08718F294315F81F6EB6E9A /* [CP] Embed Pods Frameworks */,
+				AE3A562DAA7F074E88207A22 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -212,7 +212,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A08718F294315F81F6EB6E9A /* [CP] Embed Pods Frameworks */ = {
+		AE3A562DAA7F074E88207A22 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
