@@ -135,24 +135,25 @@ public class KMFloatViewManager: NSObject {
     /// 隐藏视图
     @objc
     public func dissView() {
-        isShow = false
-        if let view = agoraRtcView {
-            UIView.animate(withDuration: 0.25, animations: {
-                if view.zoomOut {
-                    view.alpha = 1.0
-                    view.alpha = 0.0
-                } else {
-                    view.frame = CGRect(x: 0, y: 0, width: self.screenWidth, height: self.screenHeight)
-                    view.frame = CGRect(x: 0, y: -self.screenHeight, width: self.screenWidth, height: self.screenHeight)
+        if isShow {
+            isShow = false
+            if let view = agoraRtcView {
+                UIView.animate(withDuration: 0.25, animations: {
+                    if view.zoomOut {
+                        view.alpha = 1.0
+                        view.alpha = 0.0
+                    } else {
+                        view.frame = CGRect(x: 0, y: 0, width: self.screenWidth, height: self.screenHeight)
+                        view.frame = CGRect(x: 0, y: -self.screenHeight, width: self.screenWidth, height: self.screenHeight)
+                    }
+                }) { _ in
+                    view.removeFromSuperview()
+                    self.leaveChannel()
+                    AgoraRtcEngineKit.destroy()
+                    self.agoraKit = nil
+                    self.agoraRtcView = nil
+                    self.agoraRtcView?.zoomOut = false
                 }
-                
-            }) { _ in
-                view.removeFromSuperview()
-                self.leaveChannel()
-                AgoraRtcEngineKit.destroy()
-                self.agoraKit = nil
-                self.agoraRtcView = nil
-                self.agoraRtcView?.zoomOut = false
             }
         }
     }
