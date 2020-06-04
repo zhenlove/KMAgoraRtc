@@ -1,3 +1,5 @@
+source 'https://gitee.com/zhenlove/zhenSpecs.git'
+source 'https://cdn.cocoapods.org/'
 use_frameworks!
 inhibit_all_warnings!
 platform :ios, '9.0'
