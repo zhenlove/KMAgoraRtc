@@ -1,8 +1,8 @@
 PODS:
-  - AgoraRtcEngine_iOS (3.0.0.1)
+  - AgoraRtcEngine_iOS (3.0.1)
   - Kingfisher (4.10.1)
-  - KMAgoraRtc (1.0.9):
-    - AgoraRtcEngine_iOS (= 3.0.0.1)
+  - KMAgoraRtc (1.1.0):
+    - AgoraRtcEngine_iOS (= 3.0.1)
     - Kingfisher (= 4.10.1)
     - SnapKit (= 4.2.0)
   - SnapKit (4.2.0)
@@ -21,9 +21,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AgoraRtcEngine_iOS: f7fb9870f884dfa91fc3295c6594ea089f38c481
+  AgoraRtcEngine_iOS: 82c8c519f5b53ecc6c0d7909da6d33662d1e5ac1
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
-  KMAgoraRtc: 0298ea0e9c34ebf091ba25e478f316489a9bee0f
+  KMAgoraRtc: 57ea92d9240878c48469accd3bb278add8305d6e
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
 PODFILE CHECKSUM: 3264165191f0e4693ec7d044939802708d8e136d
