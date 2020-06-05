@@ -1,6 +1,6 @@
 # KMAgoraRtc
 
-[![CI Status](https://img.shields.io/travis/zhenlove/KMAgoraRtc.svg?style=flat)](https://travis-ci.org/zhenlove/KMAgoraRtc)
+[![CI Status](https://img.shields.io/travis/zhenlove/KMAgoraRtc.svg?style=flat)](https://travis-ci.com/zhenlove/KMAgoraRtc)
 [![Version](https://img.shields.io/cocoapods/v/KMAgoraRtc.svg?style=flat)](https://cocoapods.org/pods/KMAgoraRtc)
 [![License](https://img.shields.io/cocoapods/l/KMAgoraRtc.svg?style=flat)](https://cocoapods.org/pods/KMAgoraRtc)
 [![Platform](https://img.shields.io/cocoapods/p/KMAgoraRtc.svg?style=flat)](https://cocoapods.org/pods/KMAgoraRtc)
