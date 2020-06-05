@@ -9,7 +9,14 @@
 
 import Foundation
 import UIKit
+
+#if targetEnvironment(simulator)
+                   
+#else
 import AgoraRtcKit
+#endif
+
+
 extension NSObject {
     public func kmCurrentViewController() -> UIViewController? {
         var vc = UIApplication.shared.keyWindow?.rootViewController
@@ -54,7 +61,12 @@ public class KMFloatViewManager: NSObject {
     let screenHeight = UIScreen.main.bounds.size.height
     let stateHeight = UIApplication.shared.statusBarFrame.size.height
     
-    var agoraKit: AgoraRtcEngineKit?
+    #if targetEnvironment(simulator)
+
+    #else
+        var agoraKit: AgoraRtcEngineKit?
+    #endif
+    
     var agoraRtcView: KMAgoraRtcView?
     @objc public weak var delegate:KMFloatViewManagerDelegate?
     @objc public var isShow:Bool = false
@@ -69,43 +81,68 @@ public class KMFloatViewManager: NSObject {
     /// 初始化声网SDK
     // 93493485679640ec8f2a91035111ee01
     public func initializeAgotaEngine(_ appId: String) {
-        agoraKit = AgoraRtcEngineKit.sharedEngine(withAppId: appId, delegate: self)
+        
+        #if targetEnvironment(simulator)
+            print("不支持模拟器")
+        #else
+            agoraKit = AgoraRtcEngineKit.sharedEngine(withAppId: appId, delegate: self)
+        #endif
     }
     
     /// 设置通信模式
     func setupVideo() {
-        agoraKit?.enableVideo()
-        agoraKit?.setVideoEncoderConfiguration(AgoraVideoEncoderConfiguration(size: AgoraVideoDimension640x360,
-                                                                              frameRate: .fps15,
-                                                                              bitrate: AgoraVideoBitrateStandard,
-                                                                              orientationMode: .adaptative))
+        #if targetEnvironment(simulator)
+            print("不支持模拟器")
+        #else
+            agoraKit?.enableVideo()
+            agoraKit?.setVideoEncoderConfiguration(AgoraVideoEncoderConfiguration(size: AgoraVideoDimension640x360,
+                                                                                  frameRate: .fps15,
+                                                                                  bitrate: AgoraVideoBitrateStandard,
+                                                                                  orientationMode: .adaptative))
+        #endif
+        
     }
     
     /// 设置本地视频
     func setupLocalVideo() {
-        let videoCanvas = AgoraRtcVideoCanvas()
-        videoCanvas.uid = 0
-        videoCanvas.view = agoraRtcView?.localVideoView
-        videoCanvas.renderMode = .hidden
-        agoraKit?.setupLocalVideo(videoCanvas)
+        #if targetEnvironment(simulator)
+            print("不支持模拟器")
+        #else
+            let videoCanvas = AgoraRtcVideoCanvas()
+            videoCanvas.uid = 0
+            videoCanvas.view = agoraRtcView?.localVideoView
+            videoCanvas.renderMode = .hidden
+            agoraKit?.setupLocalVideo(videoCanvas)
+        #endif
+        
     }
     
     /// 加入频道
     func joinChannel(_ channelKey: String, _ channelId: String,_ userId: UInt) {
-        agoraKit?.joinChannel(byToken: channelKey,
-                              channelId: channelId,
-                              info: nil,
-                              uid: userId,
-                              joinSuccess: { (_, _, _) -> Void in
-                                  UIApplication.shared.isIdleTimerDisabled = true
-        })
+        #if targetEnvironment(simulator)
+            print("不支持模拟器")
+        #else
+            agoraKit?.joinChannel(byToken: channelKey,
+                                  channelId: channelId,
+                                  info: nil,
+                                  uid: userId,
+                                  joinSuccess: { (_, _, _) -> Void in
+                                      UIApplication.shared.isIdleTimerDisabled = true
+            })
+        #endif
+        
     }
     
     /// 退出频道
     func leaveChannel() {
-        agoraKit?.leaveChannel { _ in
-            UIApplication.shared.isIdleTimerDisabled = false
-        }
+        #if targetEnvironment(simulator)
+            print("不支持模拟器")
+        #else
+            agoraKit?.leaveChannel { _ in
+                UIApplication.shared.isIdleTimerDisabled = false
+            }
+        #endif
+        
     }
     
     
@@ -120,8 +157,13 @@ public class KMFloatViewManager: NSObject {
         setupVideo()
         setupLocalVideo()
         joinChannel(channelKey,channelId,userId)
-        agoraKit?.muteLocalAudioStream(false)
-        agoraKit?.setEnableSpeakerphone(true)
+        #if targetEnvironment(simulator)
+            print("不支持模拟器")
+        #else
+            agoraKit?.muteLocalAudioStream(false)
+            agoraKit?.setEnableSpeakerphone(true)
+        #endif
+
         if let view = agoraRtcView {
             UIApplication.shared.keyWindow?.addSubview(view)
             view.frame = CGRect(x: 0, y: -screenHeight, width: screenWidth, height: screenHeight)
@@ -149,8 +191,13 @@ public class KMFloatViewManager: NSObject {
                 }) { _ in
                     view.removeFromSuperview()
                     self.leaveChannel()
-                    AgoraRtcEngineKit.destroy()
-                    self.agoraKit = nil
+                    #if targetEnvironment(simulator)
+                        print("不支持模拟器")
+                    #else
+                        AgoraRtcEngineKit.destroy()
+                        self.agoraKit = nil
+                    #endif
+                    
                     self.agoraRtcView = nil
                     self.agoraRtcView?.zoomOut = false
                 }
@@ -202,6 +249,9 @@ public class KMFloatViewManager: NSObject {
     }
 }
 
+#if targetEnvironment(simulator)
+                   
+#else
 extension KMFloatViewManager: AgoraRtcEngineDelegate {
     /// 远端首帧视频接收解码回调
     public func rtcEngine(_ engine: AgoraRtcEngineKit, firstRemoteVideoDecodedOfUid uid: UInt, size: CGSize, elapsed: Int) {
@@ -240,18 +290,36 @@ extension KMFloatViewManager: AgoraRtcEngineDelegate {
     }
 }
 
+#endif
+
+
 extension KMFloatViewManager: KMMediaOperationDelegate {
     func clickeMicroButton(_ sender: UIButton) {
-        agoraKit?.muteLocalAudioStream(sender.isSelected)
+        #if targetEnvironment(simulator)
+            print("不支持模拟器")
+        #else
+           agoraKit?.muteLocalAudioStream(sender.isSelected)
+        #endif
+        
     }
     
     func clickedCameraButton(_ sender: UIButton) {
-        agoraKit?.muteLocalVideoStream(sender.isSelected)
+        #if targetEnvironment(simulator)
+            print("不支持模拟器")
+        #else
+           agoraKit?.muteLocalVideoStream(sender.isSelected)
+        #endif
+        
         agoraRtcView?.localVideoView.superview?.isHidden = sender.isSelected
     }
     
     func clickedLoudspeakerButton(_ sender: UIButton) {
-        agoraKit?.setEnableSpeakerphone(sender.isSelected)
+        
+        #if targetEnvironment(simulator)
+            print("不支持模拟器")
+        #else
+           agoraKit?.setEnableSpeakerphone(sender.isSelected)
+        #endif
     }
     
     func clickedZoomOutButton(_ sender: UIButton) {
@@ -264,7 +332,12 @@ extension KMFloatViewManager: KMMediaOperationDelegate {
     }
     
     func clickedSwithCameraButton(_ sender: UIButton) {
-        agoraKit?.switchCamera()
+        
+        #if targetEnvironment(simulator)
+            print("不支持模拟器")
+        #else
+           agoraKit?.switchCamera()
+        #endif
     }
     func clickedPrescribeButton(_ sender: UIButton) {
         // 开处方
