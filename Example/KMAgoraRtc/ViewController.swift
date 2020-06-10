@@ -8,13 +8,22 @@
 
 import UIKit
 import KMAgoraRtc
+import KMRouter
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+//        NotificationCenter.default.addObserver(self, selector: #selector(rejectedCalling), name: Notification.Name("rejectedCallingInKMCallingOperation"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(answerCallingIn), name: Notification.Name("answerCallingInKMCallingOperation"), object: nil)
     }
+//    @objc func rejectedCalling()  {
+//
+//    }
+//    @objc func answerCallingIn()  {
+//
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -30,6 +39,10 @@ class ViewController: UIViewController {
         let vc = KMTestViewController()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
+        
+//        KMRouter.path(urlStr: "KMAgoraRtc.KMCallingSystemController?callName=黄医生&callImage=https://prstore.kmwlyy.com/images/doctor/unknow.png", isPush: false) { (control) in
+//            control.modalPresentationStyle = .fullScreen
+//        }
     }
 
 }

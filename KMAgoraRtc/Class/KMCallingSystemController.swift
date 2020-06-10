@@ -8,15 +8,12 @@
 import UIKit
 import Kingfisher
 @objc public protocol KMCallingSystemOperationDelegate:NSObjectProtocol {
+    /// 也可以通过通知来实现方法"answerCallingInKMCallingOperation"
     func answerCallingInKMCallingOperation()
+    /// 也可以通过通知来实现方法"rejectedCallingInKMCallingOperation"
     func rejectedCallingInKMCallingOperation()
 }
 
-@objc public protocol KMCallInfoModel:NSObjectProtocol {
-    var callName:String? { get }
-    var callImage:String? { get }
-    
-}
 
 @objc(KMCallingSystemController)
 public class KMCallingSystemController: UIViewController {
@@ -26,9 +23,10 @@ public class KMCallingSystemController: UIViewController {
     @IBOutlet weak var chatTypeLab: UILabel!
     @IBOutlet weak var hangUpBtn: UIButton!
     @IBOutlet weak var answerBtn: UIButton!
-    
+    @objc public var callName:String?
+    @objc public var callImage:String?
     @objc public weak var delegate:KMCallingSystemOperationDelegate?
-    @objc public weak var userDelegate:KMCallInfoModel?
+//    @objc public weak var userDelegate:KMCallInfoModel?
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: NSStringFromClass(KMCallingSystemController.self), bundle: KMAgoraRTCTools.getcurrentBundle())
@@ -40,20 +38,22 @@ public class KMCallingSystemController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        if let urlStr = userDelegate?.callImage,
+        if let urlStr = callImage,
             let url = URL(string: urlStr) {
             doctorImage.kf.setImage(with: url)
         }
-        doctorName.text = userDelegate?.callName
+        doctorName.text = callName
 
         // Do any additional setup after loading the view.
     }
     @IBAction func clickeHangUpBtn(_ sender: Any) {
         delegate?.rejectedCallingInKMCallingOperation()
+        NotificationCenter.default.post(name: Notification.Name("rejectedCallingInKMCallingOperation"), object: nil)
         dismiss(animated: true, completion: nil)
     }
     @IBAction func clickeAnswerBtn(_ sender: Any) {
         delegate?.answerCallingInKMCallingOperation()
+        NotificationCenter.default.post(name: Notification.Name("answerCallingInKMCallingOperation"), object: nil)
         dismiss(animated: true, completion: nil)
     }
     

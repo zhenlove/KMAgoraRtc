@@ -5,12 +5,16 @@ PODS:
     - AgoraRtcEngine_iOS (= 3.0.1)
     - Kingfisher (= 4.10.1)
     - SnapKit (= 4.2.0)
+  - KMRouter (0.1.4)
   - SnapKit (4.2.0)
 
 DEPENDENCIES:
   - KMAgoraRtc (from `../`)
+  - KMRouter (= 0.1.4)
 
 SPEC REPOS:
+  https://gitee.com/zhenlove/zhenSpecs.git:
+    - KMRouter
   trunk:
     - AgoraRtcEngine_iOS
     - Kingfisher
@@ -24,8 +28,9 @@ SPEC CHECKSUMS:
   AgoraRtcEngine_iOS: 82c8c519f5b53ecc6c0d7909da6d33662d1e5ac1
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   KMAgoraRtc: 57ea92d9240878c48469accd3bb278add8305d6e
+  KMRouter: 92e261019b15366684276584ec36d0c712aff34f
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 3264165191f0e4693ec7d044939802708d8e136d
+PODFILE CHECKSUM: 693f33b1cc96e029344d8e01b907bb177123a541
 
 COCOAPODS: 1.9.2
