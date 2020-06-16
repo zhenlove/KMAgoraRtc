@@ -9,8 +9,7 @@
 import Foundation
 import UIKit
 import SnapKit
-
-
+import KMTools
 class KMButton: UIButton {
     enum KMButtonImageStyle {
         case Left
@@ -76,37 +75,9 @@ protocol KMMediaOperationDelegate :class {
     func clickedPrescribeButton(_ sender: UIButton)
 }
 
-extension KMMediaOperationDelegate {
-    func clickeMicroButton(_ sender: UIButton) {
-        
-    }
-    func clickedCameraButton(_ sender: UIButton) {
-        
-    }
-    func clickedLoudspeakerButton(_ sender: UIButton) {
-        
-    }
-    func clickedZoomOutButton(_ sender: UIButton) {
-        
-    }
-    func clickedHangupButton(_ sender: UIButton) {
-        
-    }
-    func clickedSwithCameraButton(_ sender: UIButton) {
-        
-    }
-    func clickedPrescribeButton(_ sender: UIButton) {
-        
-    }
-}
-
 class KMAgoraRTCTools: NSObject {
     static func getcurrentBundle() -> Bundle? {
-        let bundel = Bundle.init(for: KMAgoraRTCTools.self)
-        if let url = bundel.url(forResource: "AgoraRtc", withExtension: "bundle") {
-            return Bundle.init(url: url)
-        }
-        return nil
+        return Bundle.bundle("KMAgoraRtc")
     }
     static func getImage(named:String) -> UIImage? {
         return UIImage.init(named: named, in: getcurrentBundle(), compatibleWith: nil)

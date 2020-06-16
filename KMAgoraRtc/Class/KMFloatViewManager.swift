@@ -17,33 +17,6 @@ import AgoraRtcKit
 #endif
 
 
-extension NSObject {
-    public func kmCurrentViewController() -> UIViewController? {
-        var vc = UIApplication.shared.keyWindow?.rootViewController
-        while let vc1 = vc {
-            if let newVC = vc1 as? UITabBarController {
-                vc = newVC.selectedViewController
-            }
-            if let newVC = vc1 as? UINavigationController {
-                vc = newVC.visibleViewController
-            }
-            if vc1.presentationController != nil {
-                vc = vc1
-            } else {
-                break
-            }
-        }
-        return vc
-    }
-    
-    public func kmCurrentNavigationController() -> UINavigationController? {
-        return kmCurrentViewController()?.navigationController
-    }
-    
-    public func kmCurrentTabBarController() -> UITabBarController? {
-        return kmCurrentViewController()?.tabBarController
-    }
-}
 
 @objc
 public protocol KMFloatViewManagerDelegate : NSObjectProtocol {
@@ -57,22 +30,22 @@ public protocol KMFloatViewManagerDelegate : NSObjectProtocol {
 public class KMFloatViewManager: NSObject {
     @objc public static let sharedInstance = KMFloatViewManager()
     
-    let screenWidth = UIScreen.main.bounds.size.width
-    let screenHeight = UIScreen.main.bounds.size.height
-    let stateHeight = UIApplication.shared.statusBarFrame.size.height
+    private let screenWidth = UIScreen.main.bounds.size.width
+    private let screenHeight = UIScreen.main.bounds.size.height
+    private let stateHeight = UIApplication.shared.statusBarFrame.size.height
     
     #if targetEnvironment(simulator)
 
     #else
-        var agoraKit: AgoraRtcEngineKit?
+    private var agoraKit: AgoraRtcEngineKit?
     #endif
     
-    var agoraRtcView: KMAgoraRtcView?
+    private var agoraRtcView: KMAgoraRtcView?
     @objc public weak var delegate:KMFloatViewManagerDelegate?
     @objc public var isShow:Bool = false
     
     /// 初始化视图
-    func initializeView(_ userType:Int) {
+    private func initializeView(_ userType:Int) {
         agoraRtcView = KMAgoraRtcView(userType)
         agoraRtcView?.operateView.delegate = self
         agoraRtcView?.delegate = self
@@ -80,7 +53,7 @@ public class KMFloatViewManager: NSObject {
     
     /// 初始化声网SDK
     // 93493485679640ec8f2a91035111ee01
-    public func initializeAgotaEngine(_ appId: String) {
+    private func initializeAgotaEngine(_ appId: String) {
         
         #if targetEnvironment(simulator)
             print("不支持模拟器")
@@ -90,7 +63,7 @@ public class KMFloatViewManager: NSObject {
     }
     
     /// 设置通信模式
-    func setupVideo() {
+    private func setupVideo() {
         #if targetEnvironment(simulator)
             print("不支持模拟器")
         #else
@@ -104,7 +77,7 @@ public class KMFloatViewManager: NSObject {
     }
     
     /// 设置本地视频
-    func setupLocalVideo() {
+    private func setupLocalVideo() {
         #if targetEnvironment(simulator)
             print("不支持模拟器")
         #else
@@ -118,7 +91,7 @@ public class KMFloatViewManager: NSObject {
     }
     
     /// 加入频道
-    func joinChannel(_ channelKey: String, _ channelId: String,_ userId: UInt) {
+    private func joinChannel(_ channelKey: String, _ channelId: String,_ userId: UInt) {
         #if targetEnvironment(simulator)
             print("不支持模拟器")
         #else
@@ -134,7 +107,7 @@ public class KMFloatViewManager: NSObject {
     }
     
     /// 退出频道
-    func leaveChannel() {
+    private func leaveChannel() {
         #if targetEnvironment(simulator)
             print("不支持模拟器")
         #else
@@ -206,7 +179,7 @@ public class KMFloatViewManager: NSObject {
     }
     
     /// 缩小视图
-    func zoomOutView() {
+    private func zoomOutView() {
         if let view = agoraRtcView {
             UIView.animate(withDuration: 0.25, animations: {
                 let transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
@@ -231,7 +204,7 @@ public class KMFloatViewManager: NSObject {
     }
     
     /// 放大视图
-    func enlargeView() {
+    private func enlargeView() {
         if let view = agoraRtcView {
             UIView.animate(withDuration: 0.25, animations: {
                 let transform = CGAffineTransform(scaleX: 1, y: 1)
