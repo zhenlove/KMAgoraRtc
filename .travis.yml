@@ -12,5 +12,5 @@ before_install:
 script:
 #- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/KMRouter.xcworkspace -scheme KMRouter-Example -sdk iphonesimulator9.3 ONLY_ACTIVE_ARCH=NO | xcpretty
 #- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/KMRouter.xcworkspace -scheme KMRouter-Example ONLY_ACTIVE_ARCH=NO | xcpretty
-- pod lib lint --allow-warnings
+- pod lib lint --allow-warnings --sources=https://gitee.com/zhenlove/zhenSpecs.git,trunk
 
